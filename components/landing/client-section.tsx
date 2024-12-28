@@ -23,7 +23,7 @@ export default function ClientSection() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-8 py-3 text-base font-medium text-white bg-primary-600 hover:bg-primary-700 rounded-md transition duration-150 ease-in-out"
             >
-              Apply to Partner With Us →
+              Apply to Partner With Us &rarr;
             </a>
           </div>
         </div>
