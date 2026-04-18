@@ -18,52 +18,56 @@ import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import * as z from "zod";
 
-export const userAuthSchema = z.object({
+const formSchema = z.object({
   email: z.string().email(),
   password: z.string().optional(),
 });
-type FormData = z.infer<typeof userAuthSchema>;
+
+type FormValues = z.infer<typeof formSchema>;
 
 interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {
   hidden?: boolean;
 }
 
 export function UserAuthForm({ className, hidden = false, ...props }: UserAuthFormProps) {
-  const form = useForm<FormData>({
-    resolver: zodResolver(userAuthSchema),
+  const [isLoading, setIsLoading] = React.useState<boolean>(false);
+  const [isGitHubLoading, setIsGitHubLoading] = React.useState<boolean>(false);
+
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
     defaultValues: {
       email: "",
     },
   });
-  const [isLoading, setIsLoading] = React.useState<boolean>(false);
-  const [isGitHubLoading, setIsGitHubLoading] = React.useState<boolean>(false);
 
-  async function onSubmit(data: FormData) {
+  const onSubmit = async (data: FormValues) => {
     setIsLoading(true);
 
-    // TODO: Add signin using preferred provider
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      // TODO: Add signin using preferred provider
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
-    const signInResult = { ok: true };
-    setIsLoading(false);
-
-    if (!signInResult?.ok) {
-      return toast.error("Something went wrong.", {
+      toast.success("Check your email", {
+        description: "We sent you a login link. Be sure to check your spam too.",
+      });
+    } catch (error) {
+      toast.error("Something went wrong.", {
         description: "Your sign in request failed. Please try again.",
       });
+    } finally {
+      setIsLoading(false);
     }
+  };
 
-    return toast.success("Check your email", {
-      description: "We sent you a login link. Be sure to check your spam too.",
-    });
-  }
-
-  async function onSignInGithub() {
+  const onSignInGithub = async () => {
     setIsGitHubLoading(true);
-    // TODO: Add signin using preferred provider
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    setIsGitHubLoading(false);
-  }
+    try {
+      // TODO: Add signin using preferred provider
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+    } finally {
+      setIsGitHubLoading(false);
+    }
+  };
 
   return (
     <div className={cn("grid gap-6", className, hidden ? "hidden" : "")} {...props}>
@@ -75,7 +79,6 @@ export function UserAuthForm({ className, hidden = false, ...props }: UserAuthFo
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  {/* <FormLabel>Email</FormLabel> */}
                   <FormControl>
                     <Input
                       id="email"
@@ -88,7 +91,6 @@ export function UserAuthForm({ className, hidden = false, ...props }: UserAuthFo
                       {...field}
                     />
                   </FormControl>
-                  {/* <FormDescription>This is your email address.</FormDescription> */}
                   <FormMessage />
                 </FormItem>
               )}
@@ -98,9 +100,6 @@ export function UserAuthForm({ className, hidden = false, ...props }: UserAuthFo
               type="submit"
               className={cn(buttonVariants())}
               disabled={isLoading || isGitHubLoading}
-              onClick={() => {
-                // onSignIn();
-              }}
             >
               {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
               Sign In with Email
@@ -121,9 +120,7 @@ export function UserAuthForm({ className, hidden = false, ...props }: UserAuthFo
       <button
         type="button"
         className={cn(buttonVariants({ variant: "outline" }))}
-        onClick={() => {
-          onSignInGithub();
-        }}
+        onClick={onSignInGithub}
         disabled={isLoading || isGitHubLoading}
       >
         {isGitHubLoading ? (

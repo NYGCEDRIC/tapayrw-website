@@ -13,7 +13,7 @@ export default function ClientSection() {
             Join Our Growing Community
           </p>
           <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">
-            We're building something special and looking for visionary partners to join us. 
+            We&apos;re building something special and looking for visionary partners to join us. 
             Be among the first to shape the future of digital payments in Rwanda.
           </p>
           <div className="mt-10">

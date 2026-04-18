@@ -10,6 +10,17 @@ import { useState } from "react";
 
 type Interval = "month" | "year";
 
+type PricingFeature = {
+  name: string;
+  included: boolean;
+};
+
+type PricingTier = {
+  name: string;
+  price: string;
+  features: PricingFeature[];
+};
+
 export const toHumanPrice = (price: number, decimals: number = 2) => {
   return Number(price / 100).toFixed(decimals);
   

@@ -1,18 +1,19 @@
 import { cn } from "@/lib/utils";
 
-interface MarqueeProps {
+type MarqueeProps = {
+  children: React.ReactNode;
   className?: string;
   reverse?: boolean;
   pauseOnHover?: boolean;
-  children?: React.ReactNode;
   vertical?: boolean;
   repeat?: number;
-  [key: string]: any;
-}
+  direction?: 'left' | 'right';
+  speed?: number;
+};
 
 export default function Marquee({
   className,
-  reverse,
+  reverse = false,
   pauseOnHover = false,
   children,
   vertical = false,

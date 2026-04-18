@@ -1,5 +1,6 @@
 import { InstagramLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
+import Image from 'next/image'
 
 const footerSocials = [
   {
@@ -24,10 +25,12 @@ export function SiteFooter() {
               href="/" 
               className="flex items-center gap-3 transform hover:scale-105 transition-transform duration-200"
             >
-              <img
+              <Image 
                 src="/tapayicon.png"
-                className="h-10 w-10 text-primary"
                 alt="Tapay Logo"
+                width={500}
+                height={300}
+                className="h-10 w-10 text-primary"
               />
               <span className="self-center text-3xl font-bold whitespace-nowrap dark:text-white">
                 Tapay

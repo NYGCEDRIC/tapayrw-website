@@ -5,12 +5,8 @@ import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { motion, useAnimation, useInView } from "framer-motion";
 import {
-  BarChart,
   ChevronRight,
-  File,
-  Globe,
   HeartHandshake,
-  Rss,
   Shield,
   Smartphone,
   CreditCard,
@@ -89,6 +85,13 @@ const Card = (card: { icon: JSX.Element; bg: JSX.Element }) => {
       {card.bg}
     </motion.div>
   );
+};
+
+type Feature = {
+  id: number;
+  name: string;
+  description: string;
+  icon: React.ComponentType;
 };
 
 export default function CallToActionSection() {
