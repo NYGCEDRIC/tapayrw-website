@@ -10,22 +10,22 @@ const menuItem = [
   {
     id: 1,
     label: "Features",
-    href: "/features",
+    href: "#features",
   },
   {
     id: 2,
     label: "Pricing",
-    href: "#",
+    href: "#pricing",
   },
   {
     id: 3,
     label: "Careers",
-    href: "#",
+    href: "#careers",
   },
   {
     id: 4,
     label: "Contact Us",
-    href: "#",
+    href: "#contact",
   },
 ];
 
