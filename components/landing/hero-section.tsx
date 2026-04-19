@@ -19,17 +19,17 @@ export default function HeroSection() {
     >
       <div className="backdrop-filter-[12px] inline-flex h-7 items-center justify-between rounded-full border border-white/5 bg-white/10 px-3 text-xs text-white dark:text-black transition-all ease-in hover:cursor-pointer hover:bg-white/20 group gap-1 translate-y-[-1rem] animate-fade-in opacity-0">
         <TextShimmer className="inline-flex items-center justify-center">
-          <span>✨ Rwanda&apos;s NFC Payment Platform</span>{" "}
+          <span>â¨ Building Rwanda&apos;s future, together</span>{" "}
           <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
         </TextShimmer>
       </div>
       <h1 className="bg-gradient-to-br dark:from-white from-black from-30% dark:to-white/40 to-black/40 bg-clip-text py-6 text-5xl font-medium leading-none tracking-tighter text-transparent text-balance sm:text-6xl md:text-7xl lg:text-8xl translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:200ms]">
-        Tapay
-        <br className="hidden md:block" /> Seamless. Smart. Secure.
+        Tapay.
+        <br className="hidden md:block" /> Payments with Purpose.
       </h1>
       <p className="mb-12 text-lg tracking-tight text-gray-400 md:text-xl text-balance translate-y-[-1rem] animate-fade-in opacity-0 [--animation-delay:400ms]">
-        NFC-enabled payments, automated billing, and real-time tracking —
-        <br className="hidden md:block" /> built for schools, canteens, and businesses across Rwanda.
+        Seamless NFC payments for schools and businesses across Rwanda â
+        <br className="hidden md:block" /> and a student portal opening doors to life-changing opportunities, built in partnership with youth-focused NGOs.
       </p>
       <Button
         asChild
@@ -42,7 +42,7 @@ export default function HeroSection() {
           shadow-lg hover:shadow-xl"
       >
         <Link href="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAYFIAnRUOTBJSkdIUzA3UkEyNFhCN0RHRUVVRlpLRS4u" target="_blank" rel="noopener noreferrer">
-          <span>Get Started for Free</span>
+          <span>Join the Journey</span>
           <ArrowRightIcon className="ml-1 size-4 transition-transform duration-300 ease-in-out group-hover:translate-x-1" />
         </Link>
       </Button>
@@ -63,21 +63,21 @@ export default function HeroSection() {
             colorTo="var(--color-two)"
           />
 
-          <Image
-            src="/hero-dark.png"
-            alt="Tapay NFC payment dashboard — dark mode"
+          <Image 
+            src="/Tapay1.png"
+            alt="Hero Image"
             width={500}
             height={300}
             priority={true}
             className="hidden relative w-full h-full rounded-[inherit] border object-contain dark:block"
           />
-          <Image
-            src="/hero-light.png"
-            alt="Tapay NFC payment dashboard — light mode"
+          <Image 
+            src="/Tapay1.png"
+            alt="Hero Image"
             width={500}
             height={300}
             priority={true}
-            className="block relative w-full h-full rounded-[inherit] border object-contain dark:hidden"
+            className="block relative w-full h-full  rounded-[inherit] border object-contain dark:hidden"
           />
         </div>
       </div>
