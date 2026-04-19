@@ -1,94 +1,107 @@
 import { InstagramLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
-import Image from 'next/image'
+import Image from "next/image";
+
+const footerLinks = {
+  Product: [
+    { label: "Features", href: "#features" },
+    { label: "Pricing", href: "#pricing" },
+    { label: "NFC Payments", href: "#features" },
+    { label: "Analytics", href: "#features" },
+  ],
+  Company: [
+    { label: "About Us", href: "#" },
+    { label: "Careers", href: "#" },
+    { label: "Partner With Us", href: "https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAYFIAnRUMTAwNlY1SU1DMUFFWjRDSkVDNVRQWUZDRi4u" },
+    { label: "Contact", href: "mailto:hello@tapayrw.io" },
+  ],
+  Legal: [
+    { label: "Privacy Policy", href: "#" },
+    { label: "Terms of Service", href: "#" },
+    { label: "Cookie Policy", href: "#" },
+  ],
+};
 
 const footerSocials = [
   {
     href: "https://www.instagram.com/tapayrw/",
     name: "Instagram",
-    icon: <InstagramLogoIcon className="h-6 w-6" />,
+    icon: <InstagramLogoIcon className="h-5 w-5" />,
   },
   {
     href: "https://www.linkedin.com/company/tapayrw/",
     name: "LinkedIn",
-    icon: <LinkedInLogoIcon className="h-6 w-6" />,
-  }
+    icon: <LinkedInLogoIcon className="h-5 w-5" />,
+  },
 ];
 
 export function SiteFooter() {
   return (
-    <footer className="bg-gradient-to-b from-transparent to-gray-50 dark:to-gray-900/50">
-      <div className="mx-auto w-full max-w-screen-xl xl:pb-2">
-        <div className="px-8 p-4 py-16 sm:pb-16">
-          <div className="flex flex-col items-center text-center gap-10">
-            <Link 
-              href="/" 
-              className="flex items-center gap-3 transform hover:scale-105 transition-transform duration-200"
-            >
-              <Image 
+    <footer id="contact" className="border-t border-white/10 bg-background">
+      <div className="mx-auto max-w-7xl px-6 md:px-8">
+        {/* Main footer grid */}
+        <div className="py-16 grid grid-cols-1 md:grid-cols-5 gap-12">
+          {/* Brand column */}
+          <div className="md:col-span-2 flex flex-col gap-6">
+            <Link href="/" className="flex items-center gap-2 w-fit group">
+              <Image
                 src="/tapayicon.png"
                 alt="Tapay Logo"
-                width={500}
-                height={300}
-                className="h-10 w-10 text-primary"
+                width={36}
+                height={36}
+                className="h-9 w-9 transition-transform duration-200 group-hover:scale-110"
               />
-              <span className="self-center text-3xl font-bold whitespace-nowrap dark:text-white">
-                Tapay
-              </span>
+              <span className="text-xl font-bold dark:text-white">Tapay</span>
             </Link>
-
-            <p className="text-lg text-gray-600 dark:text-gray-300 font-medium max-w-xs">
-              Paying has never been easier
+            <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
+              Rwanda&apos;s leading NFC payment platform — enabling seamless, secure, and smart payments for schools, canteens, and businesses.
             </p>
-            
-            <div className="flex items-center gap-8">
+            <div className="flex items-center gap-3">
               {footerSocials.map((social) => (
                 <Link
                   key={social.name}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 rounded-full bg-white hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 
-                           shadow-lg hover:shadow-xl transition-all duration-300 group transform hover:scale-110"
+                  aria-label={social.name}
+                  className="p-2.5 rounded-xl border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-200 text-muted-foreground hover:text-foreground"
                 >
-                  <div className="text-gray-700 dark:text-gray-300 group-hover:text-primary dark:group-hover:text-primary">
-                    {social.icon}
-                  </div>
-                  <span className="sr-only">{social.name}</span>
+                  {social.icon}
                 </Link>
               ))}
             </div>
           </div>
+
+          {/* Links columns */}
+          {Object.entries(footerLinks).map(([category, links]) => (
+            <div key={category} className="flex flex-col gap-4">
+              <h3 className="text-sm font-semibold dark:text-white text-black">{category}</h3>
+              <ul className="flex flex-col gap-3">
+                {links.map((link) => (
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      target={link.href.startsWith("http") ? "_blank" : undefined}
+                      rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                    >
+                      {link.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        <div className="border-t border-gray-200 dark:border-gray-800">
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center py-6 px-8 gap-2">
-            <div className="flex flex-col sm:flex-row gap-2 items-center text-sm text-gray-500 sm:text-center dark:text-gray-400">
-              <span className="font-medium">
-                Copyright © {new Date().getFullYear()}{" "}
-                <Link 
-                  href="/" 
-                  className="text-primary hover:text-primary/80 transition-colors duration-200"
-                >
-                  Tapay
-                </Link>
-                . All Rights Reserved.
-              </span>
-              <span className="hidden sm:inline text-gray-400">•</span>
-              <span className="font-medium">
-                Built with{" "}
-                <span className="animate-pulse inline-block">❤️</span>
-                {" "}by{" "}
-                <Link 
-                  href="https://cedric-nyagatare-portfolio.vercel.app/" 
-                  target="_blank"
-                  className="text-primary hover:text-primary/80 transition-colors duration-200"
-                >
-                  Cedric
-                </Link>
-              </span>
-            </div>
-          </div>
+        {/* Bottom bar */}
+        <div className="border-t border-white/10 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-muted-foreground">
+            © {new Date().getFullYear()} Tapay Ltd. All rights reserved.
+          </p>
+          <p className="text-sm text-muted-foreground">
+            Made with <span className="animate-pulse inline-block">❤️</span> in Rwanda
+          </p>
         </div>
       </div>
     </footer>
