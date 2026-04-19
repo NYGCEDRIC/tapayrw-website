@@ -4,19 +4,27 @@ import Image from "next/image";
 
 const footerLinks = {
   Product: [
-    { label: "Features", href: "#features" },
     { label: "Pricing", href: "#pricing" },
     { label: "NFC Payments", href: "#features" },
     { label: "Analytics", href: "#features" },
+    { label: "Testimonials", href: "#testimonials" },
+  ],
+  Mission: [
+    { label: "Student Portal", href: "#students" },
+    { label: "NGO Partnerships", href: "#partnerships" },
+    { label: "Our Vision", href: "#students" },
+    { label: "Community", href: "#clients" },
   ],
   Company: [
-    { label: "About Us", href: "mailto:hello@tapayrw.io" },
+    { label: "About Us", href: "#" },
+    { label: "Careers", href: "#" },
     { label: "Partner With Us", href: "https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAYFIAnRUMTAwNlY1SU1DMUFFWjRDSkVDNVRQWUZDRi4u" },
     { label: "Contact", href: "mailto:hello@tapayrw.io" },
   ],
   Legal: [
-    { label: "Privacy Policy", href: "mailto:hello@tapayrw.io" },
-    { label: "Terms of Service", href: "mailto:hello@tapayrw.io" },
+    { label: "Privacy Policy", href: "#" },
+    { label: "Terms of Service", href: "#" },
+    { label: "Cookie Policy", href: "#" },
   ],
 };
 
@@ -38,9 +46,9 @@ export function SiteFooter() {
     <footer id="contact" className="border-t border-white/10 bg-background">
       <div className="mx-auto max-w-7xl px-6 md:px-8">
         {/* Main footer grid */}
-        <div className="py-16 grid grid-cols-1 md:grid-cols-5 gap-12">
+        <div className="py-16 grid grid-cols-2 md:grid-cols-6 gap-12">
           {/* Brand column */}
-          <div className="md:col-span-2 flex flex-col gap-6">
+          <div className="col-span-2 flex flex-col gap-6">
             <Link href="/" className="flex items-center gap-2 w-fit group">
               <Image
                 src="/tapayicon.png"
@@ -52,7 +60,8 @@ export function SiteFooter() {
               <span className="text-xl font-bold dark:text-white">Tapay</span>
             </Link>
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
-              Rwanda&apos;s leading NFC payment platform — enabling seamless, secure, and smart payments for schools, canteens, and businesses.
+              Payments with purpose. Tapay combines seamless NFC payments with a mission
+              to empower Rwanda&apos;s youth through opportunity and community.
             </p>
             <div className="flex items-center gap-3">
               {footerSocials.map((social) => (
@@ -95,10 +104,10 @@ export function SiteFooter() {
         {/* Bottom bar */}
         <div className="border-t border-white/10 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Tapay Ltd. All rights reserved.
+            Â© {new Date().getFullYear()} Tapay Ltd. All rights reserved.
           </p>
           <p className="text-sm text-muted-foreground">
-            Made with <span className="animate-pulse inline-block">❤️</span> in Rwanda
+            Made with <span className="animate-pulse inline-block">â¤ï¸</span> in Rwanda
           </p>
         </div>
       </div>
