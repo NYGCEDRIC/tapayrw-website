@@ -37,10 +37,10 @@ const demoPrices = [
       "Support for up to 500 users",
       "POS application (terminal not included)",
     ],
-    monthlyPrice: 500000, // RWF 5,000 per month (15,000/3)
-    yearlyPrice: 5400000, // Yearly: 60,000 - 10% = 54,000
-    monthlyPriceUSD: 4, // $4 (5,000 RWF ≈ $4)
-    yearlyPriceUSD: 43.2, // Yearly with 10% discount
+    monthlyPrice: 300000, // RWF 3,000 per month — entry-level
+    yearlyPrice: 3240000, // Yearly: 36,000 - 10% = 32,400
+    monthlyPriceUSD: 2.4, // $2.40
+    yearlyPriceUSD: 25.92, // Yearly with 10% discount
     isMostPopular: false,
   },
   {
@@ -55,9 +55,9 @@ const demoPrices = [
       "1 FREE POS terminal included",
       "Additional terminals available for purchase",
     ],
-    monthlyPrice: 350000, // RWF 3,500 per month (rounded from 3,333)
+    monthlyPrice: 350000, // RWF 3,500 per month
     yearlyPrice: 3780000, // Yearly: 42,000 - 10% = 37,800
-    monthlyPriceUSD: 2.8, // $2.80 (3,500 RWF ≈ $2.80)
+    monthlyPriceUSD: 2.8, // $2.80
     yearlyPriceUSD: 30.24, // Yearly with 10% discount
     isMostPopular: true,
   },
@@ -75,10 +75,10 @@ const demoPrices = [
       "1 FREE POS terminal included",
       "Additional terminals at discounted price",
     ],
-    monthlyPrice: 300000, // RWF 3,000 per month (rounded from 2,833)
-    yearlyPrice: 3240000, // Yearly: 36,000 - 10% = 32,400
-    monthlyPriceUSD: 2.4, // $2.40 (3,000 RWF ≈ $2.40)
-    yearlyPriceUSD: 25.92, // Yearly with 10% discount
+    monthlyPrice: 500000, // RWF 5,000 per month — top tier
+    yearlyPrice: 5400000, // Yearly: 60,000 - 10% = 54,000
+    monthlyPriceUSD: 4, // $4
+    yearlyPriceUSD: 43.2, // Yearly with 10% discount
     isMostPopular: false,
   },
   {
