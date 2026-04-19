@@ -152,7 +152,15 @@ export default function PricingSection() {
                     price.isMostPopular,
                 }
               )}
+              aria-label={price.isMostPopular ? `${price.name} — Most Popular` : price.name}
             >
+              {price.isMostPopular && (
+                <div className="absolute top-3 right-3">
+                  <span className="inline-block rounded-full bg-[var(--color-one)] px-3 py-0.5 text-[10px] font-bold uppercase tracking-wide text-black">
+                    Most Popular
+                  </span>
+                </div>
+              )}
               <div className="flex items-center">
                 <div className="ml-4">
                   <h2 className="text-base font-semibold leading-7">

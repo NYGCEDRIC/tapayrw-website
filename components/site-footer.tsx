@@ -10,15 +10,13 @@ const footerLinks = {
     { label: "Analytics", href: "#features" },
   ],
   Company: [
-    { label: "About Us", href: "#" },
-    { label: "Careers", href: "#" },
+    { label: "About Us", href: "mailto:hello@tapayrw.io" },
     { label: "Partner With Us", href: "https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAMAAYFIAnRUMTAwNlY1SU1DMUFFWjRDSkVDNVRQWUZDRi4u" },
     { label: "Contact", href: "mailto:hello@tapayrw.io" },
   ],
   Legal: [
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Service", href: "#" },
-    { label: "Cookie Policy", href: "#" },
+    { label: "Privacy Policy", href: "mailto:hello@tapayrw.io" },
+    { label: "Terms of Service", href: "mailto:hello@tapayrw.io" },
   ],
 };
 
