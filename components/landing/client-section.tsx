@@ -27,7 +27,7 @@ export default function ClientSection() {
           transition={{ duration: 0.5 }}
           className="inline-block text-xs uppercase tracking-widest font-bold text-primary border border-primary/30 bg-primary/10 px-4 py-1.5 rounded-full mb-4"
         >
-          Be Part of Our Journey
+          Trusted Across Rwanda
         </motion.span>
 
         <motion.h2
@@ -37,7 +37,7 @@ export default function ClientSection() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-4xl md:text-5xl font-bold tracking-tight dark:text-white text-black"
         >
-          Join Our Growing Community
+          Powering Payments at Scale
         </motion.h2>
 
         <motion.p
@@ -47,8 +47,8 @@ export default function ClientSection() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto"
         >
-          We&apos;re building something special and looking for visionary partners to join us.
-          Be among the first to shape the future of digital payments in Rwanda.
+          From school canteens to enterprise businesses, Tapay is the payment infrastructure
+          Rwanda&apos;s institutions trust to run faster, smarter, and more securely.
         </motion.p>
       </div>
 

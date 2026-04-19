@@ -114,10 +114,10 @@ export default function CallToActionSection() {
     <section id="features">
       <div className="py-14">
         <div className="flex w-full flex-col items-center justify-center">
-          <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+          <div className="relative flex w-full flex-col items-center justify-center overflow-hidden motion-reduce:overflow-hidden">
             <Marquee
               reverse
-              className="-delay-[200ms] [--duration:10s]"
+              className="-delay-[200ms] [--duration:10s] motion-reduce:[animation-play-state:paused]"
               repeat={5}
             >
               {randomTiles1.map((review, idx) => (
