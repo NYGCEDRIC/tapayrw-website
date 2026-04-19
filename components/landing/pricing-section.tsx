@@ -127,15 +127,16 @@ export default function PricingSection() {
           </p>
         </div>
 
-        <div className="flex w-full items-center justify-center space-x-2">
+        <div className="flex w-full items-center justify-center gap-3">
+          <span className={`text-sm font-medium transition-colors ${interval === 'month' ? 'text-foreground' : 'text-muted-foreground'}`}>Monthly</span>
           <Switch
             id="interval"
             onCheckedChange={(checked) => {
               setInterval(checked ? "year" : "month");
             }}
           />
-          <span>Annual</span>
-          <span className="inline-block whitespace-nowrap rounded-full bg-black px-2.5 py-1 text-[11px] font-semibold uppercase leading-5 tracking-wide text-white dark:bg-white dark:text-black">
+          <span className={`text-sm font-medium transition-colors ${interval === 'year' ? 'text-foreground' : 'text-muted-foreground'}`}>Annual</span>
+          <span className="inline-block whitespace-nowrap rounded-full bg-gradient-to-r from-green-500 to-emerald-500 px-3 py-1 text-[11px] font-bold uppercase tracking-wide text-white shadow-lg">
             10% OFF + FREE Hardware ✨
           </span>
         </div>
@@ -214,24 +215,34 @@ export default function PricingSection() {
                 )}
               </motion.div>
 
-              <Button
-                className={cn(
-                  "group relative w-full gap-2 overflow-hidden text-lg font-semibold tracking-tighter",
-                  "transform-gpu ring-offset-current transition-all duration-300 ease-out hover:ring-2 hover:ring-primary hover:ring-offset-2"
-                )}
-                disabled={isLoading}
-                onClick={() => void onSubscribeClick(price.id)}
-              >
-                <span className="absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform-gpu bg-white opacity-10 transition-all duration-1000 ease-out group-hover:-translate-x-96 dark:bg-black" />
-                {(!isLoading || (isLoading && id !== price.id)) && (
-                  <p>Subscribe</p>
-                )}
-
-                {isLoading && id === price.id && <p>Subscribing</p>}
-                {isLoading && id === price.id && (
-                  <Loader className="mr-2 h-4 w-4 animate-spin" />
-                )}
-              </Button>
+              {price.monthlyPrice === 0 ? (
+                <a
+                  href="mailto:hello@tapayrw.io"
+                  className={cn(
+                    "group relative w-full gap-2 overflow-hidden text-lg font-semibold tracking-tighter",
+                    "flex items-center justify-center rounded-md border border-input bg-background px-4 py-2",
+                    "hover:bg-accent hover:text-accent-foreground transition-all duration-300"
+                  )}
+                >
+                  Contact Sales
+                </a>
+              ) : (
+                <Button
+                  className={cn(
+                    "group relative w-full gap-2 overflow-hidden text-lg font-semibold tracking-tighter",
+                    "transform-gpu ring-offset-current transition-all duration-300 ease-out hover:ring-2 hover:ring-primary hover:ring-offset-2"
+                  )}
+                  disabled={isLoading}
+                  onClick={() => void onSubscribeClick(price.id)}
+                >
+                  <span className="absolute right-0 -mt-12 h-32 w-8 translate-x-12 rotate-12 transform-gpu bg-white opacity-10 transition-all duration-1000 ease-out group-hover:-translate-x-96 dark:bg-black" />
+                  {(!isLoading || (isLoading && id !== price.id)) && <p>Get Started</p>}
+                  {isLoading && id === price.id && <p>Loading...</p>}
+                  {isLoading && id === price.id && (
+                    <Loader className="mr-2 h-4 w-4 animate-spin" />
+                  )}
+                </Button>
+              )}
 
               <hr className="m-0 h-px w-full border-none bg-gradient-to-r from-neutral-200/0 via-neutral-500/30 to-neutral-200/0" />
               {price.features && price.features.length > 0 && (
