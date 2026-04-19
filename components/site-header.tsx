@@ -8,10 +8,11 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const menuItem = [
-  { id: 1, label: "Features", href: "#features" },
-  { id: 2, label: "Pricing", href: "#pricing" },
-  { id: 3, label: "Community", href: "#clients" },
-  { id: 4, label: "Contact Us", href: "#contact" },
+  { id: 1, label: "Students", href: "#students" },
+  { id: 2, label: "Partners", href: "#partnerships" },
+  { id: 3, label: "Testimonials", href: "#testimonials" },
+  { id: 4, label: "Pricing", href: "#pricing" },
+  { id: 5, label: "Contact", href: "#contact" },
 ];
 
 export function SiteHeader() {
@@ -99,7 +100,7 @@ export function SiteHeader() {
               rel="noopener noreferrer"
               className="text-sm font-medium px-4 py-2 rounded-lg bg-foreground text-background hover:bg-foreground/90 transition-all duration-200"
             >
-              Get Started →
+              Join the Journey â
             </Link>
           </div>
 
@@ -149,7 +150,7 @@ export function SiteHeader() {
                     rel="noopener noreferrer"
                     className="block w-full text-center py-3 px-6 bg-foreground text-background rounded-xl font-semibold"
                   >
-                    Get Started Free
+                    Join the Journey
                   </Link>
                 </motion.li>
               </motion.ul>
